@@ -5,18 +5,18 @@ resources:
 #######1: Create DV pipeline
 
 # Docker Image for VISUALIZER
-  - name: dv-img
+  - name: samplepipelinesdemo
     type: image
-    integration: dh-manishas
+    integration: saorio-docker-hub
     pointer:
-      sourceName: "shippableSamples/samplepipelinesdemo"
+      sourceName: "saorio/samplepipelinesdemo"
       isPull: false
     #make sure this seed version exists in your registry account
     seed:
-      versionName: master.1
+      versionName: latest
 
 # Docker Image Options for VISUALIZER
-  - name: dv-img-opts
+  - name: samplepipelinesdemo-opts
     type: dockerOptions
     version:
       memory: 128
@@ -33,11 +33,11 @@ resources:
 #        MONGO_API_URL: "https://api.mlab.com/api/1/databases/box-pipev2/collections/boxes?apiKey=QRsFUOV7XbNdHfTnJ7KU9bgQdnun-m_I"
 
 # add TEST env - AWS cluster
-  - name: env-test-ecs
+  - name: demo-shippable-ecs-test
     type: cluster
-    integration: demo-manishas-ecs
+    integration: demo-manishas-ecs-test
     pointer:
-      sourceName : "demo-shippable-ecs-test"
-      region: "us-east-1"
+      sourceName : "saorio/samplepipelinesdemo"
+      region: "ap-northeast-1"
 
 #######1: EOF Create DV pipeline
