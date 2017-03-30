@@ -25,9 +25,9 @@ jobs:
 # / TEST deployment for VISUALIZER to Amazon ECS
 
 # Connect CI with dv-img resource
-#  - name: samplePipelinesDemo_runCI
-#    type: runCI
-#    steps:
-#      - OUT: dv-img
+  - name: samplePipelinesDemo_runCI
+    type: runCI
+    steps:
+      - OUT: samplepipelinesdemo
 # / Connect CI with dv-img resource
 
