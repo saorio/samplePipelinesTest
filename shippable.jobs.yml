@@ -7,19 +7,19 @@ jobs:
   - name: dv-man
     type: manifest
     steps:
-      - IN: dv-img
-      - IN: dv-img-opts
+      - IN: samplepipelinesdemo
+      - IN: samplepipelinesdemo-opts
       - TASK: managed
 
 #/ manifest gen for VISUALIZER
 
 # TEST deployment for VISUALIZER to Amazon ECS
-  - name: dv-test-ecs
+  - name: ecs-cluster
     type: deploy
     steps:
-      - IN: dv-man
+      - IN: samplepipelinesdemo
 #      - IN: dv-params
-      - IN: env-test-ecs
+      - IN: ecs-cluster
       - TASK: managed
 
 # / TEST deployment for VISUALIZER to Amazon ECS
