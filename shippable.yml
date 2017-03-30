@@ -16,3 +16,4 @@ integrations:
       branches:
         only:
          - master
+         - develop
