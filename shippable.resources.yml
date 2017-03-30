@@ -19,8 +19,8 @@ resources:
   - name: samplepipelinesdemo-opts
     type: dockerOptions
     version:
-      memory: 128
-      cpuShares: 256
+      memory: 512
+      cpuShares: 512
       portMappings:
         - 80:80
       publishAllPorts : true
@@ -33,11 +33,11 @@ resources:
 #        MONGO_API_URL: "https://api.mlab.com/api/1/databases/box-pipev2/collections/boxes?apiKey=QRsFUOV7XbNdHfTnJ7KU9bgQdnun-m_I"
 
 # add TEST env - AWS cluster
-  - name: demo-shippable-ecs-test
+  - name: ecs-cluster
     type: cluster
     integration: demo-manishas-ecs-test
     pointer:
-      sourceName : "saorio/samplepipelinesdemo"
+      sourceName : "demo-shippable-ecs-test"
       region: "ap-northeast-1"
 
 #######1: EOF Create DV pipeline
