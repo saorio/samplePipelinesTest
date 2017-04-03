@@ -30,4 +30,22 @@ jobs:
     steps:
       - OUT: samplepipelinesdemo
 # / Connect CI with dv-img resource
+  - name: samplepipelinesdemo-release
+    type: release
+    steps:
+      - IN: samplepipelinesdemo-verion
+        switch: on
+      - IN: ecs-cluster
+        switch: on
+      - IN: dv-trigger
+        switch: on
+      - TASK: managed
+        bump: minor
 
+   - name: samplepipelinesdemo-prod-ecs
+     type: deploy
+     steps:
+      - IN: samplepipelinesdemo-release
+        switch: on
+      - IN: ecs-cluster
+      - TASK: managed
