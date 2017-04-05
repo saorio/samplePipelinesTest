@@ -1,8 +1,5 @@
 jobs:
-
 # jobs for the dv pipeline from CI thru TEST environment
-
-
 # manifest gen for VISUALIZER
   - name: sample-manifest
     type: manifest
@@ -12,7 +9,6 @@ jobs:
       - TASK: managed
 
 #/ manifest gen for VISUALIZER
-
 # TEST deployment for VISUALIZER to Amazon ECS
   - name: deploy-ecs
     type: deploy
@@ -29,6 +25,7 @@ jobs:
     type: runCI
     steps:
       - OUT: samplepipelinesdemo
+
 # / Connect CI with dv-img resource
   - name: samplepipelinesdemo-release
     type: release

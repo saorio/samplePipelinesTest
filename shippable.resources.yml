@@ -1,9 +1,6 @@
 resources:
-
 # resources for the dv demo pipelines from CI thru TEST environment
-
 #######1: Create DV pipeline
-
 # Docker Image for VISUALIZER
   - name: samplepipelinesdemo
     type: image
@@ -35,7 +32,7 @@ resources:
 # add TEST env - AWS cluster
   - name: ecs-cluster
     type: cluster
-    integration: aws-fuji-iam
+    integration: ecr-fuji
     pointer:
       sourceName : "demo-shippable-ecs-test"
       region: "ap-northeast-1"
